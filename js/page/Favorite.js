@@ -16,6 +16,7 @@ import NavigationBar from '../component/common/NavigationBar';
 import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view';
 import DataRepository from '../expand/dao/DataRepository';
 import ArrayUtil from '../util/ArrayUtil';
+import TrendingCell from '../component/common/TrendingCell';
 
 var FLAG_STORAGE = {flag_popular: 'popular', flag_trending: 'trending'}
 export default class Favorite extends Component {
@@ -58,7 +59,7 @@ class FavoriteTab extends Component {
     }
 
     componentDidMount() {
-        this.favoriteDao = new FavoriteDao('popular');
+        this.favoriteDao = new FavoriteDao(this.props.flag);
         this.loadData();
     }
 
@@ -84,8 +85,9 @@ class FavoriteTab extends Component {
     }
 
     _renderRow(rowData, sectionId, rowId) {
+        let CellComponent = this.props.flag === FLAG_STORAGE.flag_popular ? RepositoryCell : TrendingCell;
         return (
-            <RepositoryCell
+            <CellComponent
                 projectModel={rowData}
                 onFavorite={(item, isFavorite) => {
                     this.onFavorite(item, isFavorite);
@@ -95,10 +97,11 @@ class FavoriteTab extends Component {
     }
 
     onFavorite(item, isFavorite) {
+        let key = this.props.flag === FLAG_STORAGE.flag_popular ? item.id.toString() : item.fullName;
         if (isFavorite) {
-            this.favoriteDao.saveFavoriteItem(item.id.toString(), JSON.stringify(item));
+            this.favoriteDao.saveFavoriteItem(key, JSON.stringify(item));
         } else {
-            this.favoriteDao.removeFavoriteItem(item.id.toString());
+            this.favoriteDao.removeFavoriteItem(key);
         }
         ArrayUtil.update(this.unFavoriteItems, item);
         if (this.unFavoriteItems.length > 0) {

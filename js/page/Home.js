@@ -17,6 +17,7 @@ export var FLAG_TAB = {
 };
 import Popular from './Popular';
 import Favorite from './Favorite';
+import Trending from './Trending';
 import My from './my/My';
 import ArrayUtil from '../util/ArrayUtil';
 export default class Home extends Component {
@@ -57,6 +58,7 @@ export default class Home extends Component {
       }) 
     }
     if(selectedTab===FLAG_TAB.flag_popularTab)this.changeValues.favorite.popularChange=false;
+    if(selectedTab===FLAG_TAB.flag_trendingTab)this.changeValues.favorite.trendingChange=false;
     this.setState({selectedTab: selectedTab})
   }
 
@@ -82,7 +84,7 @@ export default class Home extends Component {
                         sceneStyle={{paddingBottom: 0}}
           >
             {this._renderTab(Popular, 'Popular', FLAG_TAB.flag_popularTab, require('../../res/images/ic_polular.png'))}
-            {this._renderTab(Popular, 'Trending', FLAG_TAB.flag_trendingTab, require('../../res/images/ic_trending.png'))}
+            {this._renderTab(Trending, 'Trending', FLAG_TAB.flag_trendingTab, require('../../res/images/ic_trending.png'))}
             {this._renderTab(Favorite, 'Favorite', FLAG_TAB.flag_favoriteTab, require('../../res/images/ic_favorite.png'))}
             {this._renderTab(My, 'My', FLAG_TAB.flag_myTab, require('../../res/images/ic_my.png'))}
           </TabNavigator>

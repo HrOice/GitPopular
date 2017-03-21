@@ -15,7 +15,7 @@ export default class FavoriteDao {
         })
     }
 
-    removeFavoriteItem(key, value, callback) {
+    removeFavoriteItem(key, callback) {
         AsyncStorage.removeItem(key, (error, resurt) => {
             if (!error) {
                 this.updateFavoriteKeys(key,false);
@@ -77,6 +77,7 @@ export default class FavoriteDao {
                 } else {
                     resolve(items);
                 }
+                console.log(items);
             }).catch((e) => {
                 reject(e);
             })
