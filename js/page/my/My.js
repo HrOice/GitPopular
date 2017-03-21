@@ -77,20 +77,20 @@ export default class My extends Component {
                     <View style={styles.line}/>
                     <Text style={styles.groupTitle}>Custom popular key</Text>
                     <View style={styles.line}/>
-                    {this.getItemView(MORE_MENU.Custom_Key, require('./img/ic_custom_language.png'), 'Sort Language')}
+                    {this.getItemView(MORE_MENU.Custom_Key, require('./img/ic_custom_language.png'), MORE_MENU.Custom_Key)}
                     <View style={styles.line}/>
-                    {this.getItemView(MORE_MENU.Sort_Key, require('./img/ic_sort.png'), 'Sort Language')}
+                    {this.getItemView(MORE_MENU.Sort_Key, require('./img/ic_sort.png'), MORE_MENU.Sort_Key)}
                     <View style={styles.line}/>
-                    {this.getItemView(MORE_MENU.Remove_Key, require('./img/ic_sort.png'), 'Sort Language')}
+                    {this.getItemView(MORE_MENU.Remove_Key, require('./img/ic_sort.png'), MORE_MENU.Remove_Key)}
 
                     <View style={styles.line}/>
                     <Text style={styles.groupTitle}>Setting</Text>
                     <View style={styles.line}/>   
-                    {this.getItemView(MORE_MENU.Custom_Theme, require('./img/ic_sort.png'), 'Sort Language')}
+                    {this.getItemView(MORE_MENU.Custom_Theme, require('./img/ic_sort.png'), MORE_MENU.Custom_Theme)}
                     <View style={styles.line}/>   
-                    {this.getItemView(MORE_MENU.About, require('./img/ic_sort.png'), 'Sort Language')}
+                    {this.getItemView(MORE_MENU.About, require('./img/ic_sort.png'), MORE_MENU.About)}
                     <View style={styles.line}/>
-                    {this.getItemView(MORE_MENU.About_Author, require('./img/ic_sort.png'), 'Sort Language')}
+                    {this.getItemView(MORE_MENU.About_Author, require('./img/ic_sort.png'), MORE_MENU.About_Author)}
                     <View style={styles.line}/>
                     <View style={[{marginBottom: 60}]}/>
                                      

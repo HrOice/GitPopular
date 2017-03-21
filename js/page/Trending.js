@@ -38,6 +38,18 @@ export default class Trending extends Component {
 
     componentDidMount() {
         this.loadLanguages();
+        this.props.homeComponent.addSubcriber(this.onSubcribe);
+    }
+
+    componentWillUnmount() {
+        this.props.homeComponent.removeSubcriber(this.onSubcribe);
+    }
+
+    onSubcribe =(preTab, currentTab) => {
+        this.changeValues = this.props.homeComponent.changeValues;
+        if (this.changeValues.my.languageChange && preTab === FLAG_TAB.flag_myTab) {
+            this.props.homeComponent.onRestart(FLAG_TAB.flag_trendingTab);
+        }
     }
 
     loadLanguages() {

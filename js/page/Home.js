@@ -29,7 +29,7 @@ export default class Home extends Component {
       my: {languageChange: false, keyChange: false, themeChange: false}
     };
     this.state = {
-      selectedTab: FLAG_TAB.flag_popularTab
+      selectedTab: this.props.selectedTab? this.props.selectedTab :FLAG_TAB.flag_popularTab
     }
   }
   onRestart(tab) {
@@ -38,7 +38,7 @@ export default class Home extends Component {
       component: Home,
       params: {
         ...this.props,
-        
+        selectedTab: tab
       }
     })
   }
