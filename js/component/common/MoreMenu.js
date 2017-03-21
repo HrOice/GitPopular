@@ -22,6 +22,7 @@ export const MORE_MENU = {
     About:'About',
     Website:'Website',
     Feedback:'Feedback',
+    NightMode: 'NightMode'
 }
 export default class MoreMenu extends Component {
 }

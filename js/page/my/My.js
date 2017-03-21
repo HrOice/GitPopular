@@ -15,7 +15,8 @@ import NavigationBar from '../../component/common/NavigationBar';
 import ViewUtils from '../../component/common/ViewUtils';
 import {MORE_MENU} from '../../component/common/MoreMenu';
 import CustomKeyPage from './CustomKeyPage';
-import {FLAG_LANGUAGE} from "../../expand/dao/LanguageDao";
+import {FLAG_LANGUAGE} from '../../expand/dao/LanguageDao';
+import SortKey from './SortKey';
 
 export default class My extends Component {
     constructor(props) {
@@ -40,6 +41,14 @@ export default class My extends Component {
                 TargetComponent = CustomKeyPage;
                 params.flag = FLAG_LANGUAGE.flag_key;
                 break;
+            case MORE_MENU.Sort_Language:
+                TargetComponent = SortKey;
+                params.flag = FLAG_LANGUAGE.flag_language;
+                break;
+            case MORE_MENU.Sort_Key:
+                TargetComponent = SortKey;
+                params.flag = FLAG_LANGUAGE.flag_key;
+                break            
         }
         if (TargetComponent) {
             this.props.navigator.push({
@@ -73,24 +82,24 @@ export default class My extends Component {
                     <Text style={styles.groupTitle}>Custom trending language</Text>
                     <View style={styles.line}/>
                     {this.getItemView(MORE_MENU.Custom_Language, require('./img/ic_custom_language.png'), 'Custom Language')}
-                    {this.getItemView(MORE_MENU.Sort_Language, require('./img/ic_sort.png'), 'Sort Language')}
+                    {this.getItemView(MORE_MENU.Sort_Language, require('./img/ic_swap_vert.png'), 'Sort Language')}
                     <View style={styles.line}/>
                     <Text style={styles.groupTitle}>Custom popular key</Text>
                     <View style={styles.line}/>
                     {this.getItemView(MORE_MENU.Custom_Key, require('./img/ic_custom_language.png'), MORE_MENU.Custom_Key)}
                     <View style={styles.line}/>
-                    {this.getItemView(MORE_MENU.Sort_Key, require('./img/ic_sort.png'), MORE_MENU.Sort_Key)}
+                    {this.getItemView(MORE_MENU.Sort_Key, require('./img/ic_swap_vert.png'), MORE_MENU.Sort_Key)}
                     <View style={styles.line}/>
-                    {this.getItemView(MORE_MENU.Remove_Key, require('./img/ic_sort.png'), MORE_MENU.Remove_Key)}
+                    {this.getItemView(MORE_MENU.Remove_Key, require('./img/ic_remove.png'), MORE_MENU.Remove_Key)}
 
                     <View style={styles.line}/>
                     <Text style={styles.groupTitle}>Setting</Text>
                     <View style={styles.line}/>   
-                    {this.getItemView(MORE_MENU.Custom_Theme, require('./img/ic_sort.png'), MORE_MENU.Custom_Theme)}
+                    {this.getItemView(MORE_MENU.Custom_Theme, require('./img/ic_view_quilt.png'), MORE_MENU.Custom_Theme)}
                     <View style={styles.line}/>   
-                    {this.getItemView(MORE_MENU.About, require('./img/ic_sort.png'), MORE_MENU.About)}
+                    {this.getItemView(MORE_MENU.NightMode, require('./img/ic_brightness.png'), MORE_MENU.NightMode)}
                     <View style={styles.line}/>
-                    {this.getItemView(MORE_MENU.About_Author, require('./img/ic_sort.png'), MORE_MENU.About_Author)}
+                    {this.getItemView(MORE_MENU.About_Author, require('./img/ic_insert_emoticon.png'), MORE_MENU.About_Author)}
                     <View style={styles.line}/>
                     <View style={[{marginBottom: 60}]}/>
                                      
