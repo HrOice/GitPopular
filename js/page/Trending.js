@@ -7,6 +7,7 @@ import {
     StyleSheet,
     Text,
     ListView,
+    TouchableHighlight,
     Image,
 } from 'react-native';
 import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view';
@@ -62,10 +63,39 @@ export default class Trending extends Component {
         })
     }
 
+    showPopover() {
+        this.refs.button.measure((ox, oy, width, height, px, py) => {
+            
+            console.log('123123');
+        })
+    }
+
+    renderTitleView() {
+        return <View >
+            <TouchableHighlight
+                ref='button'
+                underlayColor='transparent'
+                onPress={()=>this.showPopover()}>
+                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                    <Text style={{
+                        fontSize: 18,
+                        color: '#FFFFFF',
+                        fontWeight: '400'
+                    }}>Trending {this.state.timeSpan.showText}</Text>
+                    <Image
+                        style={{width: 12, height: 12, marginLeft: 5}}
+                        source={require('../../res/images/ic_spinner_triangle.png')}
+                    />
+                </View>
+            </TouchableHighlight>
+        </View>
+    }
+
     render() {
         return (
             <View style={{flex: 1}}>
-                <NavigationBar title='Trending'/>
+                <NavigationBar title='Trending'
+                               titleView={this.renderTitleView()} />
                 <ScrollableTabView 
                     tabBarBackgroundColor='red'
                     renderTabBar={() => <ScrollableTabBar 

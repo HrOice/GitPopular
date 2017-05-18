@@ -37,7 +37,8 @@ export default class NavigationBar extends Component {
   }
 
   render() {
-    let titleView = <Text style={styles.title} ellipsizeMode="head" numberOfLines={1} >{this.props.title}</Text>;
+    let titleView = this.props.titleView ? this.props.titleView :
+        <Text style={styles.title} ellipsizeMode="head" numberOfLines={1} >{this.props.title}</Text>;
     let content = <View style={styles.navBar}>
                     {this.getButtonElement(this.props.leftButton)}
                     <View>
